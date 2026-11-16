@@ -4,18 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../assets/css/style.css" rel="stylesheet" />
+    <script src="../assets/js/features/auth/login.events.js" defer></script>
     <title>PawRecord</title>
   </head>
   <body>
-    <main>
-      <form class="login-form">
+    <main class="flex-centered">
+      <form id="login-form" class="login-form">
         <div class="field">
           <label for="username-input">Username</label>
-          <input id="username-input" type="text" required />
+          <input id="username-input" name="username" type="text" required />
         </div>
         <div class="field">
           <label for="password-input">Password</label>
-          <input id="password-input" type="password" required />
+          <input id="password-input" name="password" type="password" required />
         </div>
         <input type="submit" value="Sign in" />
       </form>

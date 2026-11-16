@@ -45,14 +45,21 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
-/* Styling */
+/* Class Styling */
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tag Styling */
 
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: var(--space-xl);
 }
 
 /* Landing Page */

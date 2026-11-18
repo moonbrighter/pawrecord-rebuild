@@ -3,11 +3,17 @@ async function fetchPets() {
     method: "GET",
   });
   const result = await response.json();
-  return result;
+
+  if (!result) {
+    alert(result.message);
+  }
+  localStorage.setItem("pets", result.pets)
+  return result.pets;
 }
 
 async function init() {
-  fetchPets();
+  const pets = await fetchPets();
+  displayPets(pets);
 }
 
 init();

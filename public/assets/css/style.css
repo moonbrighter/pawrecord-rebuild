@@ -4,6 +4,45 @@
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2rem;
+
+  /* ---------- Action (blue): anything you can tap ---------- */
+  --action-primary: #2874D8;   /* buttons, links, selected tabs, sync */
+  --action-hover: #1B4F9C;     /* hover/pressed, blue text on light blue */
+  --action-tint: #E1ECFB;      /* info pills, icon backgrounds */
+  --action-soft: #EEF5FF;      /* soft blue sections and icon tiles */
+
+  /* ---------- Care (coral): brand warmth, never buttons or errors ---------- */
+  --care-coral: #FC5C46;       /* logo, headline accent, step numbers (text 24px+ only) */
+  --care-text: #B33A27;        /* coral text smaller than 24px */
+  --care-tint: #FFE4DE;        /* coral pills, reminder icon tiles */
+  --care-soft: #FFF4F1;        /* warm section backgrounds, hero circle */
+
+  /* ---------- Danger (red): real problems only, always with an icon + word ---------- */
+  --danger-red: #C62F1C;       /* overdue, failed sync, delete */
+  --danger-tint: #FDE3E0;      /* danger pill / alert backgrounds */
+
+  /* ---------- Success ---------- */
+  --success-strong: #5A821B;   /* green buttons, strong success */
+  --success-green: #80B729;    /* success accents */
+  --success-text: #1E5B30;     /* success pill text */
+  --success-tint: #D6F0DC;     /* success pill background */
+
+  /* ---------- Warning ---------- */
+  --warning-text: #7D5C2E;
+  --warning-tint: #FFD9CF;
+
+  /* ---------- Offline banner ---------- */
+  --status-offline: #E3E3A9;       /* banner background */
+  --status-offline-text: #55551C;  /* banner text and icon */
+
+  /* ---------- Neutrals ---------- */
+  --neutral-heading: #2C2C2C;      /* headings, primary text */
+  --neutral-body: #606060;         /* body and secondary text */
+  --neutral-placeholder: #ACACAC;  /* input placeholders */
+  --neutral-stroke: #C5C5C5;       /* borders, dividers */
+  --neutral-input: #EFEFEF;        /* input backgrounds */
+  --neutral-surface: #F7F7F7;      /* cards, section backgrounds */
+  --neutral-white: #FFFFFF;        /* page and card background */
 }
 
 @font-face {
@@ -22,6 +61,7 @@
 
 * {
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -41,6 +81,10 @@ input, button, textarea, select {
   font: inherit;
 }
 
+li {
+  list-style: none;
+}
+
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
@@ -51,6 +95,10 @@ p, h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.title {
+  color: var(--care-coral);
 }
 
 /* Tag Styling */
@@ -69,7 +117,7 @@ main {
   flex-direction: column;
   text-align: center;
   max-width: 36rem;
-  
+
   a {
     margin-top: 1rem;
   }
@@ -88,4 +136,16 @@ main {
 .field {
   display: flex;
   flex-direction: column;
+}
+
+/* Vet */
+
+.pet-card {
+  display: flex;
+  padding: var(--space-md);
+  border: solid 1px var(--neutral-stroke);
+
+  .pet-card__species {
+    font-weight: 400;
+  }
 }

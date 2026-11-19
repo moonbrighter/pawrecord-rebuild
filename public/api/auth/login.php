@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json");
-require "db.php";
+require __DIR__ . "/../db.php";
 
 $username = $_POST["username"] ?? "";
 $pass = $_POST["password"] ?? "";

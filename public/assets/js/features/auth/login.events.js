@@ -8,7 +8,7 @@ form.addEventListener("submit", async (event) => {
   const password = formData.get("password");
 
   const pages = {
-    vet: "vet.html",
+    vet: "vet/index.html",
     owner: "owner.html",
     admin: "admin.html",
   };

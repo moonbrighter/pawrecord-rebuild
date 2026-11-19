@@ -1,6 +1,6 @@
 :root {
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
+  --space-xs: 0.375rem;
+  --space-sm: 0.75rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2rem;
@@ -11,7 +11,7 @@
   --action-tint: #E1ECFB;      /* info pills, icon backgrounds */
   --action-soft: #EEF5FF;      /* soft blue sections and icon tiles */
 
-  /* ---------- Care (coral): brand warmth, never buttons or errors ---------- */
+  /* ---------- Care (coral): brand warmth, never errors ---------- */
   --care-coral: #FC5C46;       /* logo, headline accent, step numbers (text 24px+ only) */
   --care-text: #B33A27;        /* coral text smaller than 24px */
   --care-tint: #FFE4DE;        /* coral pills, reminder icon tiles */
@@ -37,7 +37,7 @@
 
   /* ---------- Neutrals ---------- */
   --neutral-heading: #2C2C2C;      /* headings, primary text */
-  --neutral-body: #606060;         /* body and secondary text */
+--neutral-body: #606060;         /* body and secondary text */
   --neutral-placeholder: #ACACAC;  /* input placeholders */
   --neutral-stroke: #C5C5C5;       /* borders, dividers */
   --neutral-input: #EFEFEF;        /* input backgrounds */
@@ -66,7 +66,6 @@
 
 body {
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
   line-height: 1.5;
   font-family: "Inter", system-ui, sans-serif;
@@ -85,11 +84,29 @@ li {
   list-style: none;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
-/* Class Styling */
+/* Shared Tag Styling */
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  padding: var(--space-xl);
+  padding-top: var(--space-lg);
+}
+
+/* Shared Class Styling */
 
 .flex-centered {
   display: flex;
@@ -101,13 +118,44 @@ p, h1, h2, h3, h4, h5, h6 {
   color: var(--care-coral);
 }
 
-/* Tag Styling */
-
-main {
-  flex: 1;
+.sidebar {
   display: flex;
   flex-direction: column;
-  padding: var(--space-xl);
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  min-width: 260px;
+  height: 100vh;
+  padding:  1rem 1.5rem;
+  background-color: var(--neutral-surface);
+  
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  a {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  a:hover {
+    color: var(--action-primary);
+  }
+
+  .sign-out {
+    background: none;
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    color: var(--care-coral);
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .sign-out:hover {
+    color: var(--care-text);
+  }
 }
 
 /* Landing Page */
@@ -122,7 +170,6 @@ main {
     margin-top: 1rem;
   }
 }
-
 
 /* Login */
 
@@ -139,6 +186,12 @@ main {
 }
 
 /* Vet */
+
+.pets-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
 
 .pet-card {
   display: flex;

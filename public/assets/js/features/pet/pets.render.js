@@ -11,7 +11,7 @@ function displayPets(pets) {
 
 function createPetCard(pet) {
   const card = document.createElement("article");
-  card.classList.add("pet-card");
+  card.classList.add("card");
   card.dataset.petId = pet.pet_id;
 
   const details = document.createElement("div");
@@ -22,7 +22,8 @@ function createPetCard(pet) {
   const species = document.createElement("span");
   species.classList.add("pet-card__species");
   species.textContent = pet.species;
-  title.append(pet.name, " · ", species)
+  
+  title.append(pet.name, " · ", species);
 
   const owner = document.createElement("p");
   owner.classList.add("pet-card__owner");

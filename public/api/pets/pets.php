@@ -1,7 +1,7 @@
 <?php
 session_start();
 header("Content-Type: application/json");
-require "db.php";
+require __DIR__ . "/../db.php";
 
 if (!isset($_SESSION["user_id"]) || $_SESSION["role"] !== "vet") {
   http_response_code(401);

@@ -148,14 +148,32 @@ section {
     background: none;
     padding: var(--space-sm) var(--space-md);
     border: none;
-    color: var(--care-coral);
     cursor: pointer;
     text-align: left;
   }
 
   .sign-out:hover {
-    color: var(--care-text);
+    color: var(--action-primary);
   }
+}
+
+.split-view {
+  display: flex;
+}
+
+.split-view section:first-of-type {
+  flex: 1.5;
+}
+
+.split-view section:nth-of-type(2) {
+  flex: 1;
+  border-left: 1px solid var(--neutral-stroke);
+}
+
+.card {
+  display: flex;
+  padding: var(--space-md);
+  border: solid 1px var(--neutral-stroke);
 }
 
 /* Landing Page */
@@ -193,12 +211,6 @@ section {
   gap: var(--space-lg);
 }
 
-.card {
-  display: flex;
-  padding: var(--space-md);
-  border: solid 1px var(--neutral-stroke);
-
-  .pet-card__species {
-    font-weight: 400;
-  }
+.pet-card__species {
+  font-weight: 400;
 }

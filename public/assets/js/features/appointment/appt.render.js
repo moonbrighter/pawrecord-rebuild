@@ -1,37 +1,28 @@
-function displayAppointments(appointments) {
-  const apptList = document.getElementById("appt-list");
-  apptList.innerHTML = "";
+function displayAppointments (appointments) {
+  const apptList = document.getElementById('appt-list')
+  apptList.innerHTML = ''
 
   for (const appointment of appointments) {
-    const listItem = document.createElement("li");
-    listItem.append(createAppointmentCard(appointment));
-    apptList.append(listItem);
+    apptList.append(createEl('li', '', createAppointmentCard(appointment)))
   }
 }
 
-function createAppointmentCard(appointment) {
-  const card = document.createElement("article");
-  card.classList.add("card");
-  card.dataset.apptId = appointment.appt_id;
-  
-  const details = document.createElement("div");
-  
-  const title = document.createElement("h3");
-  title.classList.add("appt-card__name");
-  title.textContent = appointment.pet_name;
+function createAppointmentCard (appointment) {
+  const time = parseTime(appointment.scheduled_at)
+  const topRow = createEl('div', 'appt-card__top-row', time)
+  const title = createEl('h3', 'appt-card__name', appointment.pet_name)
+  const species = createEl('span', '', appointment.species)
+  const owner = createEl('span', '', appointment.owner_name)
+  const details = createEl('p', '', species, ' · Owner: ', owner)
+  const info = createEl('div', '', topRow, title, details)
+  const card = createEl('article', 'card', info)
+  card.dataset.apptId = appointment.appt_id
+  return card
+}
 
-  const species = document.createElement("span");
-  species.classList.add("appt-card__species");
-  species.textContent = appointment.species;
-
-  const owner = document.createElement("span");
-  owner.classList.add("appt-card__species");
-  owner.textContent = appointment.owner_name; 
-
-  const p = document.createElement("p");
-  p.append(species, " · Owner: ", owner);
-  
-  details.append(title, p);
-  card.append(details);
-  return card;
+function parseTime (dateTime) {
+  const time = dateTime.split(' ').pop()
+  const parts = time.split(':')
+  parts.pop();
+  return parts.join(':');
 }

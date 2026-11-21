@@ -17,9 +17,9 @@ $stmt = $pdo->prepare(
    INNER JOIN pets p ON a.pet_id = p.pet_id
    LEFT JOIN users u ON a.vet_id = u.user_id
    WHERE a.status = :status
-   ORDER BY a.scheduled_at ASC"
+   ORDER BY a.scheduled_at ASC",
 );
-$stmt->execute(['status' => 'confirmed']);
+$stmt->execute(["status" => "confirmed"]);
 $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo json_encode(["success" => true, "appointments" => $appointments]);

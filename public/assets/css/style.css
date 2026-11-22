@@ -159,6 +159,7 @@ section {
 
 .split-view {
   display: flex;
+  height: 100%;
 }
 
 .split-view section:first-of-type {
@@ -211,6 +212,62 @@ section {
   gap: var(--space-lg);
 }
 
+.pet-card {
+  cursor: pointer;
+}
+
+.pet-card:hover {
+  background-color: var(--neutral-surface);
+}
+
 .pet-card__species {
   font-weight: 400;
+}
+
+#pet-preview-section {
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  position: sticky;
+  min-width: 260px;
+  height: 100vh;
+  
+  .pet-preview__summary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-md);
+    border: 1px solid var(--neutral-stroke);
+  }
+  
+  .pet-preview__fact {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-sm);
+    border-bottom: 1px solid var(--neutral-stroke);
+  }
+
+  .pet-preview__latest {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .record-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    border: 1px solid var(--neutral-stroke);
+  }
+  
+  .pet-preview__actions {
+    display: flex;
+    gap: var(--space-sm);
+  }
+  
+  .pet-preview__actions > * {
+    flex: 1;
+    text-align: center;
+  }
 }

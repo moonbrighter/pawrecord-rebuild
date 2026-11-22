@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <script src="../../assets/js/core/auth.js" defer></script>
+    <script src="../../assets/js/core/dom.js" defer></script>
+    <script src="../../assets/js/core/format.js" defer></script>
+    <script src="../../assets/js/features/pet/pet.render.js" defer></script>
+    <script src="../../assets/js/features/pet/pets.render.js" defer></script>
+    <script src="../../assets/js/features/pet/pet.data.js" defer></script>
+    <script src="../../assets/js/features/shared/shared.events.js" defer></script>
+    <title>PawRecord</title>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a class="sidebar-link" href="index.html">Home</a></li>
+          <li><a class="sidebar-link" href="pets.html">Pets</a></li>
+          <li><a class="sidebar-link" href="appointments.html">Appointments</a></li>
+          <li><a class="sidebar-link" href="notifications.html">Notifications</a></li>
+        </ul>
+      </nav>
+      <button type="button" id="sign-out" class="sign-out">Sign out</button>
+    </aside>
+    <main>
+      <div class="split-view profile-split-view">
+        <section id="pet-profile-section">
+        </section>
+        <section id="pet-activity-section">
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

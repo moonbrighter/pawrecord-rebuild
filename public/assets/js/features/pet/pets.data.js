@@ -1,9 +1,9 @@
 async function fetchPets () {
   try {
-    const response = await fetch('../../api/pets/pets.php', { method: 'GET' })
+    const response = await fetch('../../api/pets/pets.php')
     const result = await response.json()
 
-    if (!result) {
+    if (!result.success) {
       throw new Error(result.message)
     }
 

@@ -80,6 +80,10 @@ input, button, textarea, select {
   font: inherit;
 }
 
+button, input[type=submit] {
+  cursor: pointer;
+}
+
 li {
   list-style: none;
 }
@@ -206,6 +210,10 @@ section {
 
 /* Vet */
 
+.profile-split-view > * {
+  flex: 1 !important;
+}
+
 .pets-list, .appt-list {
   display: flex;
   flex-direction: column;
@@ -224,6 +232,37 @@ section {
   font-weight: 400;
 }
 
+.fact {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-sm);
+  border-bottom: 1px solid var(--neutral-stroke);
+
+  dd {
+    font-weight: bold;
+  }
+}
+
+#pet-profile-section {
+
+  .pet-profile__actions {
+    display: flex;
+    gap: var(--space-sm);
+    
+    button {
+      flex: 1;
+    }
+  }
+  
+  .pet-profile__summary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-md);
+    border: 1px solid var(--neutral-stroke);
+  }
+}
+
 #pet-preview-section {
   display: flex;
   flex-direction: column;
@@ -240,13 +279,6 @@ section {
     border: 1px solid var(--neutral-stroke);
   }
   
-  .pet-preview__fact {
-    display: flex;
-    justify-content: space-between;
-    padding: var(--space-sm);
-    border-bottom: 1px solid var(--neutral-stroke);
-  }
-
   .pet-preview__latest {
     display: flex;
     flex-direction: column;

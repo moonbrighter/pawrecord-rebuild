@@ -9,8 +9,8 @@ form.addEventListener('submit', async (event) => {
 
   const pages = {
     vet: 'vet/index.html',
-    owner: 'owner.html',
-    admin: 'admin.html'
+    owner: 'owner/index.html',
+    admin: 'admin/index.html'
   }
 
   try {

@@ -46,10 +46,12 @@ $stmt->execute([$id]);
 $pet["records"] = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $stmt = $pdo->prepare('
-  SELECT appt_id, scheduled_at, status, reason
-  FROM appointments
-  WHERE pet_id = ?
-  ORDER BY scheduled_at DESC
+  SELECT a.appt_id, a.scheduled_at, a.status, a.reason, a.description,
+         v.name AS vet_name
+  FROM appointments a
+  LEFT JOIN users v ON a.vet_id = v.user_id
+  WHERE a.pet_id = ?
+  ORDER BY a.scheduled_at DESC
 ');
 $stmt->execute([$id]);
 $pet["appointments"] = $stmt->fetchAll(PDO::FETCH_ASSOC);

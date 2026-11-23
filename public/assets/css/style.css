@@ -6,43 +6,43 @@
   --space-xl: 2rem;
 
   /* ---------- Action (blue): anything you can tap ---------- */
-  --action-primary: #2874D8;   /* buttons, links, selected tabs, sync */
-  --action-hover: #1B4F9C;     /* hover/pressed, blue text on light blue */
-  --action-tint: #E1ECFB;      /* info pills, icon backgrounds */
-  --action-soft: #EEF5FF;      /* soft blue sections and icon tiles */
+  --action-primary: #2874d8; /* buttons, links, selected tabs, sync */
+  --action-hover: #1b4f9c; /* hover/pressed, blue text on light blue */
+  --action-tint: #e1ecfb; /* info pills, icon backgrounds */
+  --action-soft: #eef5ff; /* soft blue sections and icon tiles */
 
   /* ---------- Care (coral): brand warmth, never errors ---------- */
-  --care-coral: #FC5C46;       /* logo, headline accent, step numbers (text 24px+ only) */
-  --care-text: #B33A27;        /* coral text smaller than 24px */
-  --care-tint: #FFE4DE;        /* coral pills, reminder icon tiles */
-  --care-soft: #FFF4F1;        /* warm section backgrounds, hero circle */
+  --care-coral: #fc5c46; /* logo, headline accent, step numbers (text 24px+ only) */
+  --care-text: #b33a27; /* coral text smaller than 24px */
+  --care-tint: #ffe4de; /* coral pills, reminder icon tiles */
+  --care-soft: #fff4f1; /* warm section backgrounds, hero circle */
 
   /* ---------- Danger (red): real problems only, always with an icon + word ---------- */
-  --danger-red: #C62F1C;       /* overdue, failed sync, delete */
-  --danger-tint: #FDE3E0;      /* danger pill / alert backgrounds */
+  --danger-red: #c62f1c; /* overdue, failed sync, delete */
+  --danger-tint: #fde3e0; /* danger pill / alert backgrounds */
 
   /* ---------- Success ---------- */
-  --success-strong: #5A821B;   /* green buttons, strong success */
-  --success-green: #80B729;    /* success accents */
-  --success-text: #1E5B30;     /* success pill text */
-  --success-tint: #D6F0DC;     /* success pill background */
+  --success-strong: #5a821b; /* green buttons, strong success */
+  --success-green: #80b729; /* success accents */
+  --success-text: #1e5b30; /* success pill text */
+  --success-tint: #d6f0dc; /* success pill background */
 
   /* ---------- Warning ---------- */
-  --warning-text: #7D5C2E;
-  --warning-tint: #FFD9CF;
+  --warning-text: #7d5c2e;
+  --warning-tint: #ffd9cf;
 
   /* ---------- Offline banner ---------- */
-  --status-offline: #E3E3A9;       /* banner background */
-  --status-offline-text: #55551C;  /* banner text and icon */
+  --status-offline: #e3e3a9; /* banner background */
+  --status-offline-text: #55551c; /* banner text and icon */
 
   /* ---------- Neutrals ---------- */
-  --neutral-heading: #2C2C2C;      /* headings, primary text */
---neutral-body: #606060;         /* body and secondary text */
-  --neutral-placeholder: #ACACAC;  /* input placeholders */
-  --neutral-stroke: #C5C5C5;       /* borders, dividers */
-  --neutral-input: #EFEFEF;        /* input backgrounds */
-  --neutral-surface: #F7F7F7;      /* cards, section backgrounds */
-  --neutral-white: #FFFFFF;        /* page and card background */
+  --neutral-heading: #2c2c2c; /* headings, primary text */
+  --neutral-body: #606060; /* body and secondary text */
+  --neutral-placeholder: #acacac; /* input placeholders */
+  --neutral-stroke: #c5c5c5; /* borders, dividers */
+  --neutral-input: #efefef; /* input backgrounds */
+  --neutral-surface: #f7f7f7; /* cards, section backgrounds */
+  --neutral-white: #ffffff; /* page and card background */
 }
 
 @font-face {
@@ -55,7 +55,9 @@
 
 /* CSS Reset */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -71,16 +73,24 @@ body {
   font-family: "Inter", system-ui, sans-serif;
 }
 
-img, picture, svg, video, canvas {
+img,
+picture,
+svg,
+video,
+canvas {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-button, input[type=submit] {
+button,
+input[type="submit"] {
   cursor: pointer;
 }
 
@@ -88,8 +98,31 @@ li {
   list-style: none;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  border: transparent;
+  background-color: transparent;
+  color: var(--neutral-body);
+  cursor: pointer;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232C2C2C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  padding-right: calc(1rem + var(--space-sm));
+  background-repeat: no-repeat;
+  background-position: right center;
+
+  font-weight: 600;
 }
 
 /* Shared Tag Styling */
@@ -116,6 +149,12 @@ section {
   align-items: center;
 }
 
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
 .title {
   color: var(--care-coral);
 }
@@ -124,13 +163,10 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: sticky;
-  top: 0;
   min-width: 260px;
-  height: 100vh;
-  padding:  1rem 1.5rem;
+  padding: 1rem 1.5rem;
   background-color: var(--neutral-surface);
-  
+
   nav ul {
     display: flex;
     flex-direction: column;
@@ -214,7 +250,29 @@ section {
   flex: 1 !important;
 }
 
-.pets-list, .appt-list {
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.toolbar__search {
+  flex: 1;
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  background-color: var(--neutral-input);
+}
+
+.pets-list,
+.appt-list,
+.records-list {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
@@ -244,16 +302,15 @@ section {
 }
 
 #pet-profile-section {
-
   .pet-profile__actions {
     display: flex;
     gap: var(--space-sm);
-    
+
     button {
       flex: 1;
     }
   }
-  
+
   .pet-profile__summary {
     display: flex;
     align-items: center;
@@ -263,14 +320,88 @@ section {
   }
 }
 
+#pet-activity-section {
+  .pet-activity__tabs {
+    display: flex;
+    border-bottom: 1px solid var(--neutral-stroke);
+  }
+
+  [role="tab"] {
+    flex: 1;
+    padding: var(--space-sm);
+    border: none;
+    background: none;
+    color: var(--neutral-placeholder);
+  }
+
+  [role="tab"][aria-selected="true"] {
+    color: var(--care-coral);
+    border-bottom: 2px solid var(--care-coral);
+  }
+
+  .pet-activity__panel:not([hidden]),
+  #appointments-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .record-item {
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .record-item__tags {
+    display: flex;
+    gap: var(--space-xs);
+  }
+
+  .record-item__booster {
+    text-align: right;
+  }
+
+  .appt-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .appt-group__label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--neutral-body);
+  }
+
+  .pet-appt-card {
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .pet-appt-card__date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-xs) var(--space-sm);
+    background-color: var(--action-tint);
+  }
+
+  .pet-appt-card__info {
+    flex: 1;
+  }
+
+  .pet-appt-card__top-row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+}
+
 #pet-preview-section {
   display: flex;
   flex-direction: column;
-  top: 0;
-  position: sticky;
-  min-width: 260px;
   height: 100vh;
-  
+
   .pet-preview__summary {
     display: flex;
     align-items: center;
@@ -278,7 +409,7 @@ section {
     padding: var(--space-md);
     border: 1px solid var(--neutral-stroke);
   }
-  
+
   .pet-preview__latest {
     display: flex;
     flex-direction: column;
@@ -292,12 +423,12 @@ section {
     padding: var(--space-md);
     border: 1px solid var(--neutral-stroke);
   }
-  
+
   .pet-preview__actions {
     display: flex;
     gap: var(--space-sm);
   }
-  
+
   .pet-preview__actions > * {
     flex: 1;
     text-align: center;

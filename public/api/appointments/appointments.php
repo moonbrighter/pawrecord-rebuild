@@ -11,7 +11,7 @@ if (!isset($_SESSION["user_id"]) || $_SESSION["role"] !== "vet") {
 
 $stmt = $pdo->prepare(
   "SELECT a.appt_id, a.pet_id, p.name AS pet_name, p.species,
-          u.name AS owner_name, a.reason, a.description,
+          u.name AS vet_name, a.reason, a.description,
           a.status, a.scheduled_at
    FROM appointments a
    INNER JOIN pets p ON a.pet_id = p.pet_id

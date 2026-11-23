@@ -1,9 +1,7 @@
-// ---------- Pets list ----------
-
 function displayPets (pets) {
   const petsList = document.getElementById('pets-list')
   petsList.innerHTML = ''
-
+  
   for (const pet of pets) {
     petsList.append(createEl('li', '', createPetCard(pet)))
   }
@@ -20,8 +18,6 @@ function createPetCard (pet) {
   return card
 }
 
-// ---------- Pet preview ----------
-
 function renderPetPreview (pet) {
   const preview = document.getElementById('pet-preview-section')
   preview.innerHTML = ''
@@ -35,7 +31,6 @@ function renderPetPreview (pet) {
   preview.hidden = false
 }
 
-// Summary: avatar + name · breed + PID
 function createPreviewSummary (pet) {
   const avatar = createEl('div', 'pet-preview__avatar', '🐾')
   avatar.setAttribute('aria-hidden', 'true')
@@ -50,7 +45,6 @@ function createPreviewSummary (pet) {
   return createEl('div', 'pet-preview__summary', avatar, info)
 }
 
-// Facts: label → value rows
 function createPreviewFacts (pet) {
   const booster = pet.next_booster
     ? [createEl('span', 'status-pill', formatLabel(pet.booster_status)), ' ', formatDate(pet.next_booster)]
@@ -66,7 +60,6 @@ function createPreviewFacts (pet) {
   )
 }
 
-// Latest record (the record fields come flattened on the pet object)
 function createLatestRecord (pet) {
   const heading = createEl('h3', 'pet-preview__section-title', 'Latest record')
 
@@ -92,7 +85,6 @@ function createLatestRecord (pet) {
   return createEl('div', 'pet-preview__latest', heading, card)
 }
 
-// Actions: buttons do things, links go places
 function createPreviewActions (pet) {
   const logButton = createEl('button', 'button--primary', 'Log a record')
   logButton.type = 'button'

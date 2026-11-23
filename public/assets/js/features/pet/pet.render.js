@@ -7,6 +7,9 @@ function displayPet (pet) {
     createProfileActions(pet),
     createProfileFacts(pet)
   )
+
+  displayRecords(pet.records ?? [])
+  displayPetAppointments(pet.appointments ?? [])
 }
 
 function createProfileSummary (pet) {
@@ -49,9 +52,89 @@ function createProfileActions (pet) {
   return createEl('div', 'pet-profile__actions', logButton, editButton)
 }
 
-function createFact (label, ...value) {
-  return createEl('div', 'fact',
-    createEl('dt', '', label),
-    createEl('dd', '', ...value.map((v) => v ?? '—'))
-  )
+function displayRecords (records) {
+  const container = document.getElementById('records-list')
+  container.innerHTML = ''
+
+  if (!records.length) {
+    container.append(createEl('p', '', 'No records yet.'))
+    return
+  }
+
+  const list = createEl('ul', 'records-list')
+  for (const record of records) {
+    list.append(createEl('li', '', createRecordCard(record)))
+  }
+  container.append(list)
+}
+
+function createRecordCard (record) {
+  const title = createEl('h3', 'record-item__title', record.medication_name ?? formatLabel(record.record_type))
+  const lastVisit = createEl('p', '', `Last: ${formatDate(record.administered_at)}`)
+
+  const tags = createEl('ul', 'record-item__tags', createEl('li', 'tag', formatLabel(record.record_type)))
+  if (record.booster_status) {
+    tags.append(createEl('li', 'tag', formatLabel(record.booster_status)))
+  }
+
+  const info = createEl('div', 'record-item__info', title, lastVisit, tags)
+  const card = createEl('article', 'card record-item', info)
+
+  if (record.next_booster) {
+    card.append(createEl('div', 'record-item__booster',
+      createEl('p', '', 'Next booster'),
+      createEl('strong', '', formatDate(record.next_booster))
+    ))
+  }
+
+  card.dataset.recordId = record.record_id
+  return card
+}
+
+function displayPetAppointments (appointments) {
+  const container = document.getElementById('appointments-list')
+  container.innerHTML = ''
+
+  if (!appointments.length) {
+    container.append(createEl('p', '', 'No appointments yet.'))
+    return
+  }
+
+  const now = new Date()
+  const isUpcoming = (appointment) => new Date(appointment.scheduled_at.replace(' ', 'T')) >= now
+  const upcoming = appointments.filter(isUpcoming).reverse()
+  const past = appointments.filter((appointment) => !isUpcoming(appointment))
+
+  if (upcoming.length) container.append(createAppointmentGroup('Upcoming', upcoming))
+  if (past.length) container.append(createAppointmentGroup('Past', past))
+}
+
+function createAppointmentGroup (label, appointments) {
+  const list = createEl('ul', 'appt-list')
+  for (const appointment of appointments) {
+    list.append(createEl('li', '', createPetAppointmentCard(appointment)))
+  }
+
+  return createEl('div', 'appt-group', createEl('h2', 'appt-group__label', label), list)
+}
+
+function createPetAppointmentCard (appointment) {
+  const date = new Date(appointment.scheduled_at.replace(' ', 'T'))
+  const month = createEl('span', '', date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase())
+  const day = createEl('strong', '', String(date.getDate()))
+  const dateTile = createEl('div', 'pet-appt-card__date', month, day)
+
+  const title = createEl('h3', 'pet-appt-card__title', appointment.reason ?? 'Appointment')
+  const status = createEl('span', 'status-pill', formatLabel(appointment.status))
+  const topRow = createEl('div', 'pet-appt-card__top-row', title, status)
+
+  const details = createEl('p', '', `${formatTime(appointment.scheduled_at)} · ${appointment.vet_name ?? 'No vet assigned yet'}`)
+  const info = createEl('div', 'pet-appt-card__info', topRow, details)
+  if (appointment.description) {
+    info.append(createEl('p', 'pet-appt-card__description', appointment.description))
+  }
+
+  const card = createEl('article', 'card pet-appt-card', dateTile, info)
+  card.dataset.apptId = appointment.appt_id
+  return card
 }

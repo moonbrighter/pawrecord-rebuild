@@ -4,6 +4,12 @@ function formatDate (value) {
     .toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 }
 
+function formatTime (value) {
+  if (!value) return '—'
+  return new Date(value.replace(' ', 'T'))
+    .toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
+}
+
 function getAge (birthDate) {
   if (!birthDate) return '—'
   const born = new Date(birthDate)

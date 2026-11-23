@@ -12,8 +12,8 @@ function createAppointmentCard (appointment) {
   const topRow = createEl('div', 'appt-card__top-row', time)
   const title = createEl('h3', 'appt-card__name', appointment.pet_name)
   const species = createEl('span', '', appointment.species)
-  const owner = createEl('span', '', appointment.owner_name)
-  const details = createEl('p', '', species, ' · Owner: ', owner)
+  const vet = createEl('span', '', appointment.vet_name)
+  const details = createEl('p', '', species, ' · Vet: ', vet)
   const info = createEl('div', '', topRow, title, details)
   const card = createEl('article', 'card', info)
   card.dataset.apptId = appointment.appt_id

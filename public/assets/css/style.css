@@ -217,6 +217,14 @@ section {
   border: solid 1px var(--neutral-stroke);
 }
 
+.status-pill {
+  padding: 4px 12px;
+  background-color: var(--neutral-input);
+  border-radius: var(--space-md);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
 /* Landing Page */
 
 .hero-section {

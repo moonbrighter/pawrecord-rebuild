@@ -98,6 +98,10 @@ li {
   list-style: none;
 }
 
+p {
+  color: var(--neutral-body)
+}
+
 p,
 h1,
 h2,
@@ -441,4 +445,16 @@ section {
     flex: 1;
     text-align: center;
   }
+}
+
+.empty-state {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  font-size: var(--space-md);
+}
+
+.empty-state__title {
+ font-weight: bold; 
+ color: var(--neutral-heading);
 }

@@ -7,9 +7,18 @@
     <script src="../../assets/js/core/api.js" defer></script>
     <script src="../../assets/js/core/auth.js" defer></script>
     <script src="../../assets/js/core/dom.js" defer></script>
-    <script src="../../assets/js/features/appointment/appt.data.js" defer></script>
-    <script src="../../assets/js/features/appointment/appt.render.js" defer></script>
-    <script src="../../assets/js/features/shared/shared.events.js" defer></script>
+    <script
+      src="../../assets/js/features/appointment/appt.data.js"
+      defer
+    ></script>
+    <script
+      src="../../assets/js/features/appointment/appt.render.js"
+      defer
+    ></script>
+    <script
+      src="../../assets/js/features/shared/shared.events.js"
+      defer
+    ></script>
     <title>PawRecord</title>
   </head>
   <body>
@@ -30,10 +39,17 @@
           <div class="title-row">
             <h1>Appointments</h1>
           </div>
-          <ul id="appt-list" class="appt-list">
-          </ul>
+          <ul id="appt-list" class="appt-list"></ul>
         </section>
-        <section></section>
+        <section class="appt-info-section">
+          <div class="empty-state">
+            <p class="empty-state__title">No appointment selected</p>
+            <p class="empty-state__text">
+              Pick an appointment from the list to see the pet, the owner's note
+              and what to do next.
+            </p>
+          </div>
+        </section>
       </div>
     </main>
   </body>

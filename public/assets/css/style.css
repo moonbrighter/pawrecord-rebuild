@@ -219,6 +219,11 @@ section {
   display: flex;
   padding: var(--space-md);
   border: solid 1px var(--neutral-stroke);
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: var(--neutral-surface);
 }
 
 .status-pill {
@@ -288,14 +293,6 @@ section {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
-}
-
-.pet-card {
-  cursor: pointer;
-}
-
-.pet-card:hover {
-  background-color: var(--neutral-surface);
 }
 
 .pet-card__species {
@@ -442,6 +439,41 @@ section {
   }
 
   .pet-preview__actions > * {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+#appt-info-section {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .appt-info__summary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-md);
+    border: 1px solid var(--neutral-stroke);
+  }
+
+  .appt-info__owner-note {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .appt-info__note {
+    padding: var(--space-md);
+    background-color: var(--neutral-surface);
+  }
+
+  .appt-info__actions {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .appt-info__actions > * {
     flex: 1;
     text-align: center;
   }

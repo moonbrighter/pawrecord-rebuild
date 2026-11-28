@@ -7,12 +7,18 @@
     <script src="../../assets/js/core/api.js" defer></script>
     <script src="../../assets/js/core/auth.js" defer></script>
     <script src="../../assets/js/core/dom.js" defer></script>
+    <script src="../../assets/js/core/format.js" defer></script>
+    <script src="../../assets/js/features/pet/pets.render.js" defer></script>
+    <script
+      src="../../assets/js/features/appointment/appt.render.js"
+      defer
+    ></script>
     <script
       src="../../assets/js/features/appointment/appt.data.js"
       defer
     ></script>
     <script
-      src="../../assets/js/features/appointment/appt.render.js"
+      src="../../assets/js/features/appointment/appt.events.js"
       defer
     ></script>
     <script
@@ -41,7 +47,7 @@
           </div>
           <ul id="appt-list" class="appt-list"></ul>
         </section>
-        <section class="appt-info-section">
+        <section id="appt-info-section" class="sticky">
           <div class="empty-state">
             <p class="empty-state__title">No appointment selected</p>
             <p class="empty-state__text">

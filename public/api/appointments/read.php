@@ -10,16 +10,16 @@ if (!isset($_SESSION["user_id"]) || $_SESSION["role"] !== "vet") {
 }
 
 $stmt = $pdo->prepare(
-  "SELECT a.appt_id, a.pet_id, p.name AS pet_name, p.species,
-          u.name AS vet_name, a.reason, a.description,
-          a.status, a.scheduled_at
+  "SELECT a.appt_id, a.pet_id, p.name AS pet_name, p.species, p.breed,
+          o.name AS owner_name, a.reason, a.description,
+          a.status, a.scheduled_at, a.requested_at
    FROM appointments a
    INNER JOIN pets p ON a.pet_id = p.pet_id
-   LEFT JOIN users u ON a.vet_id = u.user_id
-   WHERE a.status = :status
+   INNER JOIN users o ON p.owner_id = o.user_id
+   WHERE a.status = :status AND a.vet_id = :vet_id
    ORDER BY a.scheduled_at ASC",
 );
-$stmt->execute(["status" => "confirmed"]);
+$stmt->execute(["status" => "confirmed", "vet_id" => $_SESSION["user_id"]]);
 $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo json_encode(["success" => true, "appointments" => $appointments]);

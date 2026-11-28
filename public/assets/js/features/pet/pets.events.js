@@ -9,3 +9,10 @@ petsList.addEventListener('click', (event) => {
   const pet = pets.find((p) => p.pet_id === Number(selectedPetId))
   renderPetPreview(pet)
 })
+
+petsList.addEventListener('dblclick', (event) => {
+  const card = event.target.closest('.pet-card')
+  if (!card) return
+
+  window.location.href = `pet.html?id=${card.dataset.petId}`
+})

@@ -1,6 +1,6 @@
 async function fetchAppointments () {
   try {
-    const response = await fetch(`${API_BASE}/appointments/appointments.php`, {
+    const response = await fetch(`${API_BASE}/appointments/read.php`, {
       method: 'GET'
     })
     const result = await response.json()

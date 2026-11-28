@@ -1,6 +1,6 @@
 async function fetchPets () {
   try {
-    const response = await fetch('../../api/pets/pets.php')
+    const response = await fetch(`${API_BASE}/pets/read.php`)
     const result = await response.json()
 
     if (!result.success) {

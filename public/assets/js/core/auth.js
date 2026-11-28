@@ -1,5 +1,5 @@
 async function login (data) {
-  const response = await fetch('../api/auth/login.php', {
+  const response = await fetch(`${API_BASE}/auth/login.php`, {
     method: 'POST',
     body: data
   })
@@ -14,7 +14,7 @@ async function login (data) {
 }
 
 async function logout () {
-  const response = await fetch('../../api/auth/logout.php', { method: 'POST' })
+  const response = await fetch(`${API_BASE}/auth/logout.php`, { method: 'POST' })
   const result = await response.json()
 
   if (!result.success) {
@@ -25,7 +25,7 @@ async function logout () {
 
 // Returns the logged-in user ({ user_id, role }) or null if there is no session.
 async function getSession () {
-  const response = await fetch('../../api/auth/session.php')
+  const response = await fetch(`${API_BASE}/auth/session.php`)
 
   if (response.status === 401) {
     localStorage.removeItem('user')

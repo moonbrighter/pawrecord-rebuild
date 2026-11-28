@@ -3,7 +3,7 @@ async function fetchPet() {
   const petId = Number(params.get('id'));
   
   try {
-    const response = await fetch(`../../api/pets/pet.php?id=${petId}`)
+    const response = await fetch(`${API_BASE}/pets/read_one.php?id=${petId}`)
     const result = await response.json()
 
     if (!result.success) {
